@@ -6,12 +6,18 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.material3.Card
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -29,58 +35,133 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
+            Harjoitus01Theme() {
             // aseta käyttöliittymän pääkomponentti
             // käyttöliittymö on Composable funktio
             // Composable on funktio, joka palauttaa käyttöliittymän
             MyGUI()
+                }
         }
     }
 }
-@Preview
+
+@Preview(showBackground = true)
 @Composable
-fun MyGUI(){
+fun MyGUI() {
+
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFF4E008E))
-            .padding(20.dp)
-            .wrapContentSize(Alignment.Center)
-            ,
-            horizontalAlignment = Alignment.CenterHorizontally,
+            .padding(20.dp),
+        verticalArrangement = Arrangement.Center
     ) {
-        Text(
-            text = "Jyri Nieminen",
-            fontSize = 40.sp,
-            color = Color(0xFFFFDCA5),
-            textAlign = TextAlign.Center,
 
-        )
-        Text(
-            text = "Tietotekniikan insinööriopiskelija",
-            color = Color(0xFFFFFFFF),
-            textAlign = TextAlign.Center,
+        Card(
+            modifier = Modifier.fillMaxWidth()
+        ) {
 
-            )
-        Spacer(
-            modifier = Modifier.height(20.dp)
-        )
-        Text(
-            text = "Suuntaudun Ohjelmistotekniikkaan sekä Tietoliikennetekniikkaan ja tietoverkkoihin.",
-            color = Color(0xFFFFFFFF),
-            textAlign = TextAlign.Center,
+            Column(
+                modifier = Modifier.padding(20.dp)
+            ) {
 
-            )
-        Spacer(
-            modifier = Modifier.height(20.dp)
-        )
-        MyButton("nappi")
+                // Otsikko
+                Text(
+                    text = "Jyri Nieminen",
+                    style = MaterialTheme.typography.headlineMedium
+                )
+
+                // Rooli
+                Text(
+                    text = "Tietotekniikan insinööriopiskelija",
+                    style = MaterialTheme.typography.titleMedium
+                )
+
+                Spacer(
+                    modifier = Modifier.height(8.dp)
+                )
+
+                // Lyhyt kuvaus
+                Text(
+                    text = "Opiskelen ICT-alaa ja olen kiinnostunut " +
+                            "ohjelmoinnista, tietoverkoista ja web-kehityksestä.",
+                    style = MaterialTheme.typography.bodyMedium
+                )
+
+                Spacer(
+                    modifier = Modifier.height(20.dp)
+                )
+
+                // Tieto 1
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(vertical = 6.dp)
+                ) {
+                    Text(
+                        text = "Suuntautuminen: ",
+                        style = MaterialTheme.typography.titleSmall
+                    )
+
+                    Text(
+                        text = "Ohjelmistotekniikka"
+                    )
+                }
+
+                // Tieto 2
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(vertical = 6.dp)
+                ) {
+                    Text(
+                        text = "Kiinnostuksen kohde: ",
+                        style = MaterialTheme.typography.titleSmall
+                    )
+
+                    Text(
+                        text = "Tietoverkot"
+                    )
+                }
+
+                // Tieto 3
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(vertical = 6.dp)
+                ) {
+                    Text(
+                        text = "Harrastus: ",
+                        style = MaterialTheme.typography.titleSmall
+                    )
+
+                    Text(
+                        text = "Ohjelmointi"
+                    )
+                }
+
+                Spacer(
+                    modifier = Modifier.height(20.dp)
+                )
+
+                // Painikkeet
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
+
+                    Button(
+                        onClick = { }
+                    ) {
+                        Text("Ota yhteyttä")
+                    }
+
+                    OutlinedButton(
+                        onClick = { }
+                    ) {
+                        Text("Seuraa")
+                    }
+                }
+            }
         }
-}
-@Composable
-fun MyButton(buttonText: String){
-    Button(
-        onClick = { }
-    ) {
-        Text(buttonText)
     }
 }

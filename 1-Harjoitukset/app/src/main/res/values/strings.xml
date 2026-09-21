@@ -1,3 +1,22 @@
 <resources>
-    <string name="app_name">Harjoitus-01</string>
+    <string name="app_name">Profiilisovellus</string>
+
+    <string name="profile_title">Profiili</string>
+    <string name="profile_description">
+        Tutustu käyttäjän tietoihin ja kiinnostuksen kohteisiin.
+    </string>
+
+    <string name="profile_image_description">
+        Käyttäjän profiilikuva
+    </string>
+
+    <string name="label_location">Paikkakunta</string>
+    <string name="label_specialization">Suuntautuminen</string>
+    <string name="label_interest">Kiinnostuksen kohde</string>
+    <string name="label_hobby">Harrastus</string>
+
+    <string name="action_follow">Seuraa</string>
+    <string name="action_message">Lähetä viesti</string>
+
+    <string name="action_add_description">Lisää</string>
 </resources>

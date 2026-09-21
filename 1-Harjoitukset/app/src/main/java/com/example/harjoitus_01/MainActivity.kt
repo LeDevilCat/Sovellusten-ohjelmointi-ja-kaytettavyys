@@ -35,7 +35,9 @@ import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
+
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 
 import com.example.harjoitus_01.ui.theme.Harjoitus01Theme
 
@@ -70,7 +72,9 @@ fun ProfileScreen(
         topBar = {
             TopAppBar(
                 title = {
-                    Text(text = "Profiili")
+                    Text(
+                        text = stringResource(R.string.profile_title)
+                    )
                 }
             )
         },
@@ -81,12 +85,13 @@ fun ProfileScreen(
             ) {
                 Icon(
                     imageVector = Icons.Default.Add,
-                    contentDescription = "Lisää"
+                    contentDescription = stringResource(
+                        R.string.action_add_description
+                    )
                 )
             }
         }
     ) { innerPadding ->
-
         ProfileContent(
             modifier = Modifier.padding(innerPadding)
         )
@@ -111,7 +116,7 @@ fun ProfileContent(
 
                 Image(
                     painter = painterResource(R.drawable.profile_picture),
-                    contentDescription = "Käyttäjän Profiilikuva",
+                    contentDescription = "Käyttäjän profiilikuva",
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(220.dp),
@@ -143,22 +148,20 @@ fun ProfileContent(
                             contentDescription = null
                         )
                         Text(
-                            text = "Tampere"
+                            text = "${stringResource(R.string.label_location)}: Tampere"
                         )
                     }
 
                     InfoRow(
-                        label = "Suuntautuminen",
+                        label = stringResource(R.string.label_specialization),
                         value = "Ohjelmistotekniikka"
                     )
-
                     InfoRow(
-                        label = "Kiinnostuksen kohde",
+                        label = stringResource(R.string.label_interest),
                         value = "Tietoverkot"
                     )
-
                     InfoRow(
-                        label = "Harrastus",
+                        label = stringResource(R.string.label_hobby),
                         value = "Ohjelmointi"
                     )
 
@@ -237,13 +240,17 @@ fun ProfileActions(
         Button(
             onClick = { }
         ) {
-            Text("Ota yhteyttä")
+            Text(
+                text = stringResource(R.string.action_message)
+            )
         }
 
         OutlinedButton(
             onClick = { }
         ) {
-            Text("Seuraa")
+            Text(
+                text = stringResource(R.string.action_follow)
+            )
         }
     }
 }

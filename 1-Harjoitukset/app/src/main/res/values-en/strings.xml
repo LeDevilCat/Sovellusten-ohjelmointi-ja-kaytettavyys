@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Profile App</string>
+
+    <string name="profile_title">Profile</string>
+    <string name="profile_description">
+        View the user’s details and interests.
+    </string>
+
+    <string name="profile_image_description">
+        User profile picture
+    </string>
+
+    <string name="label_location">Location</string>
+    <string name="label_specialization">Specialization</string>
+    <string name="label_interest">Interest</string>
+    <string name="label_hobby">Hobby</string>
+
+    <string name="action_follow">Follow</string>
+    <string name="action_message">Send message</string>
+
+    <string name="action_add_description">Add</string>
+</resources>

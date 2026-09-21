@@ -28,6 +28,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.size
+import androidx.compose.material.icons.filled.LocationOn
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
+
 import com.example.harjoitus_01.ui.theme.Harjoitus01Theme
 
 
@@ -98,41 +107,67 @@ fun ProfileContent(
         Card(
             modifier = Modifier.fillMaxWidth()
         ) {
-            Column(
-                modifier = Modifier.padding(20.dp)
-            ) {
+            Column {
 
-                ProfileHeader(
-                    name = "Jyri Nieminen",
-                    role = "Tietotekniikan insinööriopiskelija",
-                    description = "Opiskelen ICT-alaa ja olen kiinnostunut " +
-                            "ohjelmoinnista, tietoverkoista ja web-kehityksestä."
+                Image(
+                    painter = painterResource(R.drawable.profile_picture),
+                    contentDescription = "Käyttäjän Profiilikuva",
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(220.dp),
+                    contentScale = ContentScale.Crop,
+                    alignment = Alignment.TopCenter
                 )
 
-                Spacer(
-                    modifier = Modifier.height(20.dp)
-                )
+                Column(
+                    modifier = Modifier.padding(20.dp)
+                ) {
 
-                InfoRow(
-                    label = "Suuntautuminen",
-                    value = "Ohjelmistotekniikka"
-                )
+                    ProfileHeader(
+                        name = "Jyri Nieminen",
+                        role = "Tietotekniikan insinööriopiskelija",
+                        description = "Opiskelen ICT-alaa ja olen kiinnostunut " +
+                                "ohjelmoinnista, tietoverkoista ja web-kehityksestä."
+                    )
 
-                InfoRow(
-                    label = "Kiinnostuksen kohde",
-                    value = "Tietoverkot"
-                )
+                    Spacer(
+                        modifier = Modifier.height(20.dp)
+                    )
 
-                InfoRow(
-                    label = "Harrastus",
-                    value = "Ohjelmointi"
-                )
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(8.dp)
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.LocationOn,
+                            contentDescription = null
+                        )
+                        Text(
+                            text = "Tampere"
+                        )
+                    }
 
-                Spacer(
-                    modifier = Modifier.height(20.dp)
-                )
+                    InfoRow(
+                        label = "Suuntautuminen",
+                        value = "Ohjelmistotekniikka"
+                    )
 
-                ProfileActions()
+                    InfoRow(
+                        label = "Kiinnostuksen kohde",
+                        value = "Tietoverkot"
+                    )
+
+                    InfoRow(
+                        label = "Harrastus",
+                        value = "Ohjelmointi"
+                    )
+
+                    Spacer(
+                        modifier = Modifier.height(20.dp)
+                    )
+
+                    ProfileActions()
+                }
             }
         }
     }

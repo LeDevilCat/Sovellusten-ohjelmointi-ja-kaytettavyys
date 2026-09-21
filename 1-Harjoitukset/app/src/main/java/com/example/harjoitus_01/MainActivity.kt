@@ -48,13 +48,12 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         enableEdgeToEdge()
-
         setContent {
             Harjoitus01Theme {
                 // aseta käyttöliittymän pääkomponentti
                 // käyttöliittymö on Composable funktio
                 // Composable on funktio, joka palauttaa käyttöliittymän
-                ProfileScreen()
+                Counter()
             }
         }
     }

@@ -9,11 +9,20 @@
     <string name="profile_image_description">
         Käyttäjän profiilikuva
     </string>
+    <string name="profile_name">Jyri Nieminen</string>
+    <string name="profile_role">Tietotekniikan insinööriopiskelija</string>
+    <string name="profile_desc">
+        Opiskelen ICT-alaa ja olen kiinnostunut ohjelmoinnista, tietoverkoista ja web-kehityksestä.
+    </string>
 
     <string name="label_location">Paikkakunta</string>
     <string name="label_specialization">Suuntautuminen</string>
     <string name="label_interest">Kiinnostuksen kohde</string>
     <string name="label_hobby">Harrastus</string>
+
+    <string name="specialisation">Ohjelmistotekniikka &amp; tietoverkot</string>
+    <string name="interest">UI/UX-suunnittelu  &amp; web-kehitys</string>
+    <string name="hobby">Pelaaminen</string>
 
     <string name="action_follow">Seuraa</string>
     <string name="action_message">Lähetä viesti</string>

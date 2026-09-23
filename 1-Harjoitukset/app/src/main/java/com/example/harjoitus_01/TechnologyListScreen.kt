@@ -48,8 +48,8 @@ fun TechnologyListScreen (
                     technology.id
                 }
             ) { technology ->
-                Text(
-                    text = technology.name
+                ProgrammingTechnologyCard(
+                    technology = technology
                 )
             }
         }

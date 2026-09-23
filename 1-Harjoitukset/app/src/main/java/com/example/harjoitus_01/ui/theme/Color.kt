@@ -2,10 +2,15 @@ package com.example.harjoitus_01.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-val Purple80 = Color(0xFFD0BCFF)
-val PurpleGrey80 = Color(0xFFCCC2DC)
-val Pink80 = Color(0xFFEFB8C8)
+// Päävärit / Main colors
+val Turquoise = Color(0xFF0099CC)
+val DarkBlue = Color(0xFF042546)
 
-val Purple40 = Color(0xFF6650a4)
-val PurpleGrey40 = Color(0xFF625b71)
-val Pink40 = Color(0xFF7D5260)
+// Lisävärit / Secondary colors
+val Red = Color(0xFFEB5E58)
+val Green = Color(0xFFABC872)
+val LightBlueGrey = Color(0xFFE5EEF8)
+
+// Neutraaleja värejä teeman käyttöön / Neutral colors for the theme
+val White = Color(0xFFFFFFFF)
+val Black = Color(0xFF000000)

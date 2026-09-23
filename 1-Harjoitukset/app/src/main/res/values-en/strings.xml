@@ -12,7 +12,7 @@
     <string name="profile_name">Jyri Nieminen</string>
     <string name="profile_role">ICT-Engineering student</string>
     <string name="profile_desc">
-        I study on the ICT field and I am interested in software engineering, networking ja web-development.
+        I study in the ICT field and I am interested in software engineering, networking and web development.
     </string>
 
     <string name="label_location">Location</string>
@@ -24,9 +24,12 @@
     <string name="interest">UI/UX design &amp; web development</string>
     <string name="hobby">Gaming</string>
 
-
     <string name="action_follow">Follow</string>
     <string name="action_message">Send message</string>
 
     <string name="action_add_description">Add</string>
+
+    <string name="technology_screen_title">Programming Technologies</string>
+    <string name="technology_show_favorites">Show favorites only</string>
+    <string name="technology_no_favorites">No favorites found.</string>
 </resources>

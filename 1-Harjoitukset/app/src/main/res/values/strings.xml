@@ -21,11 +21,15 @@
     <string name="label_hobby">Harrastus</string>
 
     <string name="specialisation">Ohjelmistotekniikka &amp; tietoverkot</string>
-    <string name="interest">UI/UX-suunnittelu  &amp; web-kehitys</string>
+    <string name="interest">UI/UX-suunnittelu &amp; web-kehitys</string>
     <string name="hobby">Pelaaminen</string>
 
     <string name="action_follow">Seuraa</string>
     <string name="action_message">Lähetä viesti</string>
 
     <string name="action_add_description">Lisää</string>
+
+    <string name="technology_screen_title">Ohjelmointiteknologiat</string>
+    <string name="technology_show_favorites">Näytä vain suosikit</string>
+    <string name="technology_no_favorites">Suosikkeja ei löytynyt.</string>
 </resources>

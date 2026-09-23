@@ -20,6 +20,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -40,17 +41,14 @@ fun TechnologyListScreen(
     }
 
     Scaffold(
-        modifier = modifier,
-        topBar = {
+        modifier = modifier, topBar = {
             TopAppBar(
                 title = {
                     Text(
-                        text = "Ohjelmointiteknologiat"
+                        text = stringResource(R.string.technology_screen_title)
                     )
-                }
-            )
-        }
-    ) { innerPadding ->
+                })
+        }) { innerPadding ->
 
         LazyColumn(
             modifier = Modifier
@@ -72,15 +70,13 @@ fun TechnologyListScreen(
                 ) {
 
                     Text(
-                        text = "Näytä vain suosikit"
+                        text = stringResource(R.string.technology_show_favorites)
                     )
 
                     Switch(
-                        checked = showFavoritesOnly,
-                        onCheckedChange = { checked ->
+                        checked = showFavoritesOnly, onCheckedChange = { checked ->
                             showFavoritesOnly = checked
-                        }
-                    )
+                        })
                 }
             }
 
@@ -88,18 +84,16 @@ fun TechnologyListScreen(
 
                 item {
                     Text(
-                        text = "Suosikkeja ei löytynyt."
+                        text = stringResource(R.string.technology_no_favorites)
                     )
                 }
 
             } else {
 
                 items(
-                    items = visibleTechnologies,
-                    key = { technology ->
+                    items = visibleTechnologies, key = { technology ->
                         technology.id
-                    }
-                ) { technology ->
+                    }) { technology ->
 
                     ProgrammingTechnologyCard(
                         technology = technology

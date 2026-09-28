@@ -131,7 +131,10 @@ fun TechnologyListScreen(
                     }) { technology ->
 
                     ProgrammingTechnologyCard(
-                        technology = technology
+                        technology = technology,
+                        onClick = {
+                            // Nav to be added
+                        }
                     )
                 }
             }

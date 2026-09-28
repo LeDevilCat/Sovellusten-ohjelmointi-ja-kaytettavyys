@@ -19,9 +19,11 @@ import androidx.compose.ui.res.painterResource
 @Composable
 fun ProgrammingTechnologyCard(
     technology: ProgrammingTechnology,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onClick: () -> Unit = {}
 ) {
     Card(
+        onClick = onClick,
         modifier = modifier.fillMaxWidth()
     ) {
         Column(

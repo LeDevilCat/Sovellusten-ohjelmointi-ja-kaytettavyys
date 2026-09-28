@@ -17,7 +17,7 @@ class MainActivity : ComponentActivity() {
                 // aseta käyttöliittymän pääkomponentti
                 // käyttöliittymö on Composable funktio
                 // Composable on funktio, joka palauttaa käyttöliittymän
-                ProfileScreen()
+                TechnologyListScreen()
             }
         }
     }

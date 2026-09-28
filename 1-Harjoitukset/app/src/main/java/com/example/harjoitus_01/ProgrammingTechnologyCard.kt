@@ -12,6 +12,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.compose.foundation.Image
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 
 @Composable
 fun ProgrammingTechnologyCard(
@@ -24,6 +27,14 @@ fun ProgrammingTechnologyCard(
         Column(
             modifier = Modifier.padding(16.dp)
         ) {
+            Image(
+                painter = painterResource(R.drawable.programming),
+                contentDescription = null,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(120.dp),
+                contentScale = ContentScale.Crop
+            )
             Text(
                 text = technology.name,
                 style = MaterialTheme.typography.headlineMedium

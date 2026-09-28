@@ -27,7 +27,8 @@ import androidx.compose.ui.unit.dp
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TechnologyListScreen(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onTechnologyClick: (Int) -> Unit
 ) {
     var showFavoritesOnly by rememberSaveable {
         mutableStateOf(false)
@@ -133,7 +134,7 @@ fun TechnologyListScreen(
                     ProgrammingTechnologyCard(
                         technology = technology,
                         onClick = {
-                            // Nav to be added
+                            onTechnologyClick(technology.id)
                         }
                     )
                 }

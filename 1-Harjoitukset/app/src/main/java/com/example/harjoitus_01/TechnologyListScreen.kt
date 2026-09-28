@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -31,7 +32,25 @@ fun TechnologyListScreen(
     var showFavoritesOnly by rememberSaveable {
         mutableStateOf(false)
     }
+    var searchText by rememberSaveable {
+        mutableStateOf("")
+    }
 
+    val visibleTechnologies = ProgrammingTechnologies.filter { technology ->
+
+        val matchFavouritesFilter =
+            !showFavoritesOnly || technology.isFavorite
+
+        val matchSearchText =
+            technology.name.contains(
+                searchText,
+                ignoreCase = true
+            )
+
+        matchFavouritesFilter && matchSearchText
+    }
+
+    /*
     val visibleTechnologies = if (showFavoritesOnly) {
         ProgrammingTechnologies.filter {
             it.isFavorite
@@ -39,6 +58,7 @@ fun TechnologyListScreen(
     } else {
         ProgrammingTechnologies
     }
+     */
 
     Scaffold(
         modifier = modifier, topBar = {
@@ -59,6 +79,21 @@ fun TechnologyListScreen(
 
             verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
+            item {
+                OutlinedTextField(
+                    value = searchText,
+                    onValueChange = { newText ->
+                        searchText = newText
+                    },
+                    label = {
+                        Text(
+                            text = stringResource(R.string.technology_search_label)
+                        )
+                    },
+                    modifier = Modifier.fillMaxWidth(),
+                    singleLine = true
+                )
+            }
 
             item {
                 Row(

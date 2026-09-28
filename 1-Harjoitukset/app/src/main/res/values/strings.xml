@@ -31,5 +31,6 @@
 
     <string name="technology_screen_title">Ohjelmointiteknologiat</string>
     <string name="technology_show_favorites">Näytä vain suosikit</string>
-    <string name="technology_no_favorites">Suosikkeja ei löytynyt.</string>
+    <string name="technology_no_favorites">Hakuehdoilla ei löytynyt teknologioita.</string>
+    <string name="technology_search_label">Hae ohjelmointiteknologiaa</string>
 </resources>

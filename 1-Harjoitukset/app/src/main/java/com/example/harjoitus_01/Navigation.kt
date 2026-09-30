@@ -20,7 +20,8 @@ data object CounterViewModelRoute
 
 @Serializable
 data object TimerRoute
-
+@Serializable
+data object WebsiteRoute
 
 @Composable
 fun AppNavigation() {
@@ -28,7 +29,7 @@ fun AppNavigation() {
 
     NavHost(
         navController = navController,
-        startDestination = TimerRoute
+        startDestination = WebsiteRoute
     ) {
         composable<TechnologyListRoute> {
             TechnologyListScreen(
@@ -64,6 +65,9 @@ fun AppNavigation() {
 
         composable<TimerRoute> {
             TimerScreen()
+        }
+        composable<WebsiteRoute> {
+            WebsiteScreen()
         }
     }
 }

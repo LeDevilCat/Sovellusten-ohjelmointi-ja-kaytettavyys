@@ -18,13 +18,17 @@ data class TechnologyDetailRoute(
 @Serializable
 data object CounterViewModelRoute
 
+@Serializable
+data object TimerRoute
+
 
 @Composable
 fun AppNavigation() {
     val navController = rememberNavController()
 
     NavHost(
-        navController = navController, startDestination = CounterViewModelRoute
+        navController = navController,
+        startDestination = TimerRoute
     ) {
         composable<TechnologyListRoute> {
             TechnologyListScreen(
@@ -56,6 +60,10 @@ fun AppNavigation() {
 
         composable<CounterViewModelRoute> {
             CounterViewModelScreen()
+        }
+
+        composable<TimerRoute> {
+            TimerScreen()
         }
     }
 }

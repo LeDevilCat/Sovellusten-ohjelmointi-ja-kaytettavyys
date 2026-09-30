@@ -41,6 +41,8 @@ fun EventDetailScreen(
     onBackClick: () -> Unit
 ) {
     val context = LocalContext.current
+    val browserNotFoundError = stringResource(R.string.error_browser_not_found)
+    val mapNotFoundError = stringResource(R.string.error_map_not_found)
 
     Scaffold(
         topBar = {
@@ -89,12 +91,12 @@ fun EventDetailScreen(
             )
 
             Text(
-                text = "Sijainti: ${event.location}",
+                text = stringResource(R.string.event_location_format, event.location),
                 style = MaterialTheme.typography.bodyLarge
             )
 
             Text(
-                text = if (event.isFree) "Ilmainen tapahtuma" else "Hinta: ${event.price} €",
+                text = if (event.isFree) stringResource(R.string.event_free_badge) else stringResource(R.string.event_price_format, event.price),
                 style = MaterialTheme.typography.bodyLarge
             )
 
@@ -102,7 +104,7 @@ fun EventDetailScreen(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
-                    text = if (event.isFree) "🎉 Ilmainen" else "🎟️ Maksullinen",
+                    text = if (event.isFree) stringResource(R.string.event_free_short) else stringResource(R.string.event_paid_short),
                     color = if (event.isFree) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.secondary,
                     style = MaterialTheme.typography.titleMedium
                 )
@@ -121,14 +123,14 @@ fun EventDetailScreen(
                     } catch (_: ActivityNotFoundException) {
                         Toast.makeText(
                             context,
-                            "Sopivaa selainta ei löytynyt.",
+                            browserNotFoundError,
                             Toast.LENGTH_SHORT
                         ).show()
                     }
                 },
                 modifier = Modifier.fillMaxWidth()
             ) {
-                Text("Avaa verkkosivu")
+                Text(stringResource(R.string.action_open_website))
             }
 
             Button(
@@ -143,14 +145,14 @@ fun EventDetailScreen(
                     } catch (_: ActivityNotFoundException) {
                         Toast.makeText(
                             context,
-                            "Sopivaa karttasovellusta ei löytynyt.",
+                            mapNotFoundError,
                             Toast.LENGTH_SHORT
                         ).show()
                     }
                 },
                 modifier = Modifier.fillMaxWidth()
             ) {
-                Text("Näytä kartalla")
+                Text(stringResource(R.string.action_show_map))
             }
         }
     }

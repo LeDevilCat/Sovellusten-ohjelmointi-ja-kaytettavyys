@@ -18,6 +18,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 
 @Composable
@@ -35,7 +36,7 @@ fun Counter() {
         verticalArrangement = Arrangement.Center
     ) {
         Text(
-            text = "Laskurin arvo",
+            text = stringResource(R.string.counter_title),
             style = MaterialTheme.typography.titleLarge
         )
 
@@ -57,7 +58,7 @@ fun Counter() {
                 },
                 enabled = count > 0
             ) {
-                Text(text = "Vähennä")
+                Text(text = stringResource(R.string.action_decrease))
             }
 
             Button(
@@ -66,7 +67,7 @@ fun Counter() {
                 },
                 enabled = count < 10
             ) {
-                Text(text = "Lisää")
+                Text(text = stringResource(R.string.action_increase))
             }
         }
 
@@ -78,7 +79,7 @@ fun Counter() {
             },
             enabled = count > 0
         ) {
-            Text(text = "Nollaa")
+            Text(text = stringResource(R.string.action_reset))
         }
     }
 }

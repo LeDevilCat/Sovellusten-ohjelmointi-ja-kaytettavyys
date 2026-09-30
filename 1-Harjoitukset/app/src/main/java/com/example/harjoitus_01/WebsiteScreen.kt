@@ -16,6 +16,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 
 @Composable
@@ -23,9 +24,12 @@ fun WebsiteScreen() {
 
     val context = LocalContext.current
 
-    val websiteName = "TAMK"
-    val url = "https://www.tuni.fi/tamk"
-    val location = "Kuntokatu 3, 33520 Tampere"
+    val websiteName = stringResource(R.string.website_name)
+    val url = stringResource(R.string.website_url)
+    val location = stringResource(R.string.website_address)
+
+    val browserNotFoundError = stringResource(R.string.error_browser_not_found)
+    val mapNotFoundError = stringResource(R.string.error_map_not_found)
 
     Column(
         modifier = Modifier
@@ -64,13 +68,13 @@ fun WebsiteScreen() {
                 } catch (e: ActivityNotFoundException) {
                     Toast.makeText(
                         context,
-                        "Sopivaa selainta ei löytynyt.",
+                        browserNotFoundError,
                         Toast.LENGTH_SHORT
                     ).show()
                 }
             }
         ) {
-            Text("Avaa verkkosivu")
+            Text(stringResource(R.string.action_open_website))
         }
 
         Spacer(
@@ -93,13 +97,13 @@ fun WebsiteScreen() {
                 } catch (e: ActivityNotFoundException) {
                     Toast.makeText(
                         context,
-                        "Sopivaa karttasovellusta ei löytynyt.",
+                        mapNotFoundError,
                         Toast.LENGTH_SHORT
                     ).show()
                 }
             }
         ) {
-            Text("Näytä kartalla")
+            Text(stringResource(R.string.action_show_map))
         }
     }
 }

@@ -37,7 +37,7 @@ fun AppNavigation() {
 
     NavHost(
         navController = navController,
-        startDestination = EventListRoute
+        startDestination = WebsiteRoute
     ) {
         composable<EventListRoute> {
             EventListScreen(

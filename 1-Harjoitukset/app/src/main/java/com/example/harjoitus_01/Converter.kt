@@ -18,8 +18,11 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import java.util.Locale
 
 fun convertCentimetersToInches(
     centimeters: Double
@@ -46,16 +49,19 @@ fun Converter() {
         mutableStateOf(false)
     }
 
+    val invalidNumberError = stringResource(R.string.converter_error_invalid_number)
+    val inchesUnitFormat = stringResource(R.string.converter_result)
+
     Column(
         modifier = Modifier
             .fillMaxSize()
             .padding(24.dp),
-        horizontalAlignment = androidx.compose.ui.Alignment.CenterHorizontally,
+        horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
 
         Text(
-            text = "Senttimetri–tuuma-muunnin",
+            text = stringResource(R.string.converter_title),
             style = MaterialTheme.typography.headlineSmall
         )
 
@@ -70,7 +76,7 @@ fun Converter() {
                 errorMessage = ""
             },
             label = {
-                Text(text = "Senttimetrit")
+                Text(text = stringResource(R.string.converter_label_centimeters))
             },
             singleLine = true,
             modifier = Modifier.fillMaxWidth()
@@ -88,17 +94,17 @@ fun Converter() {
                     .toDoubleOrNull()
 
                 if (centimeters == null) {
-                    errorMessage = "Anna kelvollinen numero."
+                    errorMessage = invalidNumberError
                     result = ""
                 } else {
                     val inches = convertCentimetersToInches(centimeters)
-                    result = "%.2f tuumaa".format(inches)
+                    result = String.format(Locale.getDefault(), inchesUnitFormat, inches)
                     errorMessage = ""
                 }
             },
             modifier = Modifier.fillMaxWidth()
         ) {
-            Text(text = "Laske")
+            Text(text = stringResource(R.string.action_calculate))
         }
 
         Spacer(
@@ -113,7 +119,7 @@ fun Converter() {
             },
             modifier = Modifier.fillMaxWidth()
         ) {
-            Text(text = "Tyhjennä")
+            Text(text = stringResource(R.string.action_clear))
         }
 
         Spacer(
@@ -122,7 +128,7 @@ fun Converter() {
 
         if (result.isNotEmpty()) {
             Text(
-                text = "Tulos: $result",
+                text = stringResource(R.string.converter_result_prefix, result),
                 style = MaterialTheme.typography.titleLarge
             )
         }
@@ -149,9 +155,9 @@ fun Converter() {
         ) {
             Text(
                 text = if (showFormula) {
-                    "Piilota ohje"
+                    stringResource(R.string.action_hide_help)
                 } else {
-                    "Näytä ohje"
+                    stringResource(R.string.action_show_help)
                 }
             )
         }
@@ -162,7 +168,7 @@ fun Converter() {
             )
 
             Text(
-                text = "Muunnos tehdään kaavalla: tuumat = senttimetrit / 2,54"
+                text = stringResource(R.string.converter_formula)
             )
         }
     }

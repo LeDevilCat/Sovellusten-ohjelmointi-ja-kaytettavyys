@@ -14,6 +14,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 
 @Composable
@@ -49,18 +50,18 @@ fun EventCard(
             )
             Spacer(modifier = Modifier.height(8.dp))
             Text(
-                text = "Sijainti: ${event.location}",
+                text = stringResource(R.string.event_location_format, event.location),
                 style = MaterialTheme.typography.bodySmall
             )
             Spacer(modifier = Modifier.height(4.dp))
             Text(
-                text = if (event.isFree) "Ilmainen" else "Hinta: ${event.price} €",
+                text = if (event.isFree) stringResource(R.string.event_free) else stringResource(R.string.event_price_format, event.price),
                 style = MaterialTheme.typography.bodyMedium
             )
             Spacer(modifier = Modifier.height(8.dp))
             Row {
                 Text(
-                    text = if (event.isFree) "🎉 Ilmainen tapahtuma" else "🎟️ Maksullinen tapahtuma",
+                    text = if (event.isFree) stringResource(R.string.event_free_badge) else stringResource(R.string.event_paid_badge),
                     color = if (event.isFree) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.secondary
                 )
             }

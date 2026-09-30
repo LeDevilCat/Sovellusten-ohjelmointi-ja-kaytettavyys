@@ -20,6 +20,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 
 @Composable
@@ -46,7 +47,7 @@ fun RegistrationScreen() {
     ) {
 
         Text(
-            text = "Tapahtumaan ilmoittautuminen",
+            text = stringResource(R.string.registration_title),
             style = MaterialTheme.typography.headlineSmall
         )
 
@@ -61,7 +62,7 @@ fun RegistrationScreen() {
                 isConfirmed = false
             },
             label = {
-                Text(text = "Nimi")
+                Text(text = stringResource(R.string.label_name))
             },
             singleLine = true,
             modifier = Modifier.fillMaxWidth()
@@ -94,7 +95,7 @@ fun RegistrationScreen() {
             enabled = name.isNotBlank(),
             modifier = Modifier.fillMaxWidth()
         ) {
-            Text(text = "Vahvista")
+            Text(text = stringResource(R.string.action_confirm))
         }
 
         Spacer(
@@ -122,7 +123,7 @@ fun ParticipantSelector(
     ) {
 
         Text(
-            text = "Osallistujamäärä",
+            text = stringResource(R.string.label_participant_count),
             style = MaterialTheme.typography.titleMedium
         )
 
@@ -169,7 +170,7 @@ fun RegistrationSummary(
     ) {
 
         Text(
-            text = "Ilmoittautuminen vahvistettu!",
+            text = stringResource(R.string.registration_confirmed_title),
             style = MaterialTheme.typography.titleLarge
         )
 
@@ -178,11 +179,11 @@ fun RegistrationSummary(
         )
 
         Text(
-            text = "Nimi: $name"
+            text = stringResource(R.string.registration_name_format, name)
         )
 
         Text(
-            text = "Osallistujamäärä: $participantCount"
+            text = stringResource(R.string.registration_participants_format, participantCount)
         )
     }
 }

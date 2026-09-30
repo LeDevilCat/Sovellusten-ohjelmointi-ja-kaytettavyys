@@ -90,7 +90,7 @@ fun ProfileContent(
 
                 Image(
                     painter = painterResource(R.drawable.profile_picture),
-                    contentDescription = "Käyttäjän profiilikuva",
+                    contentDescription = stringResource(R.string.profile_image_description),
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(220.dp),
@@ -124,7 +124,7 @@ fun ProfileContent(
                         )
 
                         Text(
-                            text = "${stringResource(R.string.label_location)}: Tampere"
+                            text = "${stringResource(R.string.label_location)}: ${stringResource(R.string.profile_location_city)}"
                         )
                     }
 

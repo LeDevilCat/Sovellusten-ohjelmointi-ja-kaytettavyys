@@ -1,46 +1,113 @@
 <resources>
+    <!-- ======================================== -->
+    <!-- App & General / Common Actions -->
+    <!-- ======================================== -->
     <string name="app_name">Profile App</string>
+    <string name="action_back">Back</string>
+    <string name="action_calculate">Calculate</string>
+    <string name="action_clear">Clear</string>
+    <string name="action_start">Start</string>
+    <string name="action_stop">Stop</string>
+    <string name="action_reset">Reset</string>
+    <string name="action_confirm">Confirm</string>
+    <string name="action_open_website">Open website</string>
+    <string name="action_show_map">Show on map</string>
+    <string name="action_show_help">Show help</string>
+    <string name="action_hide_help">Hide help</string>
+    <string name="action_follow">Follow</string>
+    <string name="action_message">Send message</string>
+    <string name="action_add_description">Add</string>
 
+    <!-- ======================================== -->
+    <!-- Profile Screen & Header -->
+    <!-- ======================================== -->
     <string name="profile_title">Profile</string>
-    <string name="profile_description">
-        View the user’s details and interests.
-    </string>
-
-    <string name="profile_image_description">
-        User profile picture
-    </string>
+    <string name="profile_description">View the user’s details and interests.</string>
+    <string name="profile_image_description">User profile picture</string>
     <string name="profile_name">Jyri Nieminen</string>
     <string name="profile_role">ICT-Engineering student</string>
-    <string name="profile_desc">
-        I study in the ICT field and I am interested in software engineering, networking and web development.
-    </string>
+    <string name="profile_desc">I study in the ICT field and I am interested in software engineering, networking and web development.</string>
+    <string name="profile_location_city">Tampere</string>
 
     <string name="label_location">Location</string>
     <string name="label_specialization">Specialization</string>
     <string name="label_interest">Interest</string>
     <string name="label_hobby">Hobby</string>
+    <string name="label_name">Name</string>
+    <string name="label_participant_count">Participant count</string>
 
     <string name="specialisation">Software engineering &amp; networking</string>
     <string name="interest">UI/UX design &amp; web development</string>
     <string name="hobby">Gaming</string>
 
-    <string name="action_follow">Follow</string>
-    <string name="action_message">Send message</string>
-
-    <string name="action_add_description">Add</string>
-
-    <!-- Technology cards -->
+    <!-- ======================================== -->
+    <!-- Programming Technologies -->
+    <!-- ======================================== -->
     <string name="technology_screen_title">Programming Technologies</string>
     <string name="technology_show_favorites">Show favorites only</string>
-    <string name="technology_no_favorites">No favorites found.</string>
-    <string name="technology_search_label">No technologies matched the search criteria</string>
+    <string name="technology_no_favorites">No technologies matched the search criteria.</string>
+    <string name="technology_search_label">Search programming technologies</string>
+    <string name="technology_experience_format">Experience: %d years</string>
+    <string name="technology_favorite_true">✅ Favorite</string>
+    <string name="technology_favorite_false">❌ Not favorite</string>
 
-    <!-- Navigation -->
-    <string name="action_back">Back</string>
+    <!-- ======================================== -->
+    <!-- Events -->
+    <!-- ======================================== -->
+    <string name="events_screen_title">Events</string>
+    <string name="events_search_label">Search event or location</string>
+    <string name="events_show_free_only">Show free only</string>
+    <string name="events_no_results">No events matched the search criteria.</string>
+    <string name="event_location_format">Location: %s</string>
+    <string name="event_free">Free</string>
+    <string name="event_price_format">Price: €%s</string>
+    <string name="event_free_badge">🎉 Free event</string>
+    <string name="event_paid_badge">🎟️ Paid event</string>
+    <string name="event_free_short">🎉 Free</string>
+    <string name="event_paid_short">🎟️ Paid</string>
 
-    <!-- Laskuri -->
+    <!-- ======================================== -->
+    <!-- Counter -->
+    <!-- ======================================== -->
+    <string name="counter_title">Counter value</string>
     <string name="counter_value">Counter value: %d</string>
     <string name="action_decrease">Decrease</string>
     <string name="action_increase">Increase</string>
-    <string name="action_reset">Reset</string>
+
+    <!-- ======================================== -->
+    <!-- Converter (Centimeter / Inch) -->
+    <!-- ======================================== -->
+    <string name="converter_title">Centimeter to Inch Converter</string>
+    <string name="converter_label_centimeters">Centimeters</string>
+    <string name="converter_result">%.2f inches</string>
+    <string name="converter_result_prefix">Result: %s</string>
+    <string name="converter_formula">Conversion formula: inches = centimeters / 2.54</string>
+    <string name="converter_error_invalid_number">Please enter a valid number.</string>
+
+    <!-- ======================================== -->
+    <!-- Registration Form -->
+    <!-- ======================================== -->
+    <string name="registration_title">Event Registration</string>
+    <string name="registration_confirmed_title">Registration confirmed!</string>
+    <string name="registration_name_format">Name: %s</string>
+    <string name="registration_participants_format">Participant count: %d</string>
+
+    <!-- ======================================== -->
+    <!-- Timer -->
+    <!-- ======================================== -->
+    <string name="timer_title">Stopwatch</string>
+    <string name="timer_value_format">Stopwatch: %d s</string>
+
+    <!-- ======================================== -->
+    <!-- Website / TAMK Info -->
+    <!-- ======================================== -->
+    <string name="website_name">TAMK</string>
+    <string name="website_url">https://www.tuni.fi/tamk</string>
+    <string name="website_address">Kuntokatu 3, 33520 Tampere</string>
+
+    <!-- ======================================== -->
+    <!-- Error Messages & Toasts -->
+    <!-- ======================================== -->
+    <string name="error_browser_not_found">No suitable browser found.</string>
+    <string name="error_map_not_found">No suitable map application found.</string>
 </resources>

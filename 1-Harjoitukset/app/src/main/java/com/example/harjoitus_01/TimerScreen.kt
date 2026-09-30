@@ -13,6 +13,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -33,7 +34,7 @@ fun TimerScreen(
     ) {
 
         Text(
-            text = "Sekuntikello: $seconds s"
+            text = stringResource(R.string.timer_value_format, seconds)
         )
 
         Spacer(
@@ -49,7 +50,7 @@ fun TimerScreen(
                     timerViewModel.startTimer()
                 }
             ) {
-                Text("Käynnistä")
+                Text(stringResource(R.string.action_start))
             }
 
             Button(
@@ -57,7 +58,7 @@ fun TimerScreen(
                     timerViewModel.stopTimer()
                 }
             ) {
-                Text("Pysäytä")
+                Text(stringResource(R.string.action_stop))
             }
 
             Button(
@@ -66,7 +67,7 @@ fun TimerScreen(
                 },
                 enabled = seconds > 0
             ) {
-                Text("Nollaa")
+                Text(stringResource(R.string.action_reset))
             }
         }
     }

@@ -15,6 +15,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.foundation.Image
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 
 @Composable
 fun ProgrammingTechnologyCard(
@@ -52,7 +53,7 @@ fun ProgrammingTechnologyCard(
                 modifier = Modifier.height(8.dp)
             )
             Text(
-                text = "Kokemusta: ${technology.experienceYears} vuotta"
+                text = stringResource(R.string.technology_experience_format, technology.experienceYears)
             )
             Spacer(
                 modifier = Modifier.height(8.dp)
@@ -60,9 +61,9 @@ fun ProgrammingTechnologyCard(
             Row {
                 Text(
                     text = if (technology.isFavorite) {
-                        "✅ Suosikki"
+                        stringResource(R.string.technology_favorite_true)
                     } else {
-                        "🟥 Ei Suosikki"
+                        stringResource(R.string.technology_favorite_false)
                     }
                 )
             }

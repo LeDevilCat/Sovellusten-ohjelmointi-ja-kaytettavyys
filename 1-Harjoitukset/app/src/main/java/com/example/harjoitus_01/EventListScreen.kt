@@ -21,6 +21,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -48,7 +49,7 @@ fun EventListScreen(
         topBar = {
             TopAppBar(
                 title = {
-                    Text(text = "Tapahtumat")
+                    Text(text = stringResource(R.string.events_screen_title))
                 }
             )
         }
@@ -67,7 +68,7 @@ fun EventListScreen(
                         searchText = newText
                     },
                     label = {
-                        Text(text = "Hae tapahtumaa tai sijaintia")
+                        Text(text = stringResource(R.string.events_search_label))
                     },
                     modifier = Modifier.fillMaxWidth(),
                     singleLine = true
@@ -82,7 +83,7 @@ fun EventListScreen(
                     horizontalArrangement = Arrangement.SpaceBetween,
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Text(text = "Näytä vain ilmaiset")
+                    Text(text = stringResource(R.string.events_show_free_only))
                     Switch(
                         checked = showFreeOnly,
                         onCheckedChange = { checked ->
@@ -94,7 +95,7 @@ fun EventListScreen(
 
             if (visibleEvents.isEmpty()) {
                 item {
-                    Text(text = "Hakuehdoilla ei löytynyt tapahtumia.")
+                    Text(text = stringResource(R.string.events_no_results))
                 }
             } else {
                 items(

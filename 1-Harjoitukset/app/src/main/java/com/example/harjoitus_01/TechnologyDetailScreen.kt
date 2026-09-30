@@ -81,7 +81,7 @@ fun TechnologyDetailScreen(
             )
 
             Text(
-                text = "Kokemusta: ${technology.experienceYears} vuotta",
+                text = stringResource(R.string.technology_experience_format, technology.experienceYears),
                 style = MaterialTheme.typography.bodyLarge
             )
 
@@ -90,9 +90,9 @@ fun TechnologyDetailScreen(
             ) {
                 Text(
                     text = if (technology.isFavorite) {
-                        "✅ Suosikki"
+                        stringResource(R.string.technology_favorite_true)
                     } else {
-                        "🟥 Ei suosikki"
+                        stringResource(R.string.technology_favorite_false)
                     }, color = if (technology.isFavorite) {
                         MaterialTheme.colorScheme.primary
                     } else {

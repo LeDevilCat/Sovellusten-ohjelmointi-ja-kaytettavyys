@@ -1,44 +1,113 @@
 <resources>
+    <!-- ======================================== -->
+    <!-- App & General / Common Actions -->
+    <!-- ======================================== -->
     <string name="app_name">Profiilisovellus</string>
+    <string name="action_back">Takaisin</string>
+    <string name="action_calculate">Laske</string>
+    <string name="action_clear">Tyhjennä</string>
+    <string name="action_start">Käynnistä</string>
+    <string name="action_stop">Pysäytä</string>
+    <string name="action_reset">Nollaa</string>
+    <string name="action_confirm">Vahvista</string>
+    <string name="action_open_website">Avaa verkkosivu</string>
+    <string name="action_show_map">Näytä kartalla</string>
+    <string name="action_show_help">Näytä ohje</string>
+    <string name="action_hide_help">Piilota ohje</string>
+    <string name="action_follow">Seuraa</string>
+    <string name="action_message">Lähetä viesti</string>
+    <string name="action_add_description">Lisää</string>
 
+    <!-- ======================================== -->
+    <!-- Profile Screen & Header -->
+    <!-- ======================================== -->
     <string name="profile_title">Profiili</string>
-    <string name="profile_description">"         Tutustu käyttäjän tietoihin ja kiinnostuksen kohteisiin.     "</string>
-
-    <string name="profile_image_description">
-        Käyttäjän profiilikuva
-    </string>
+    <string name="profile_description">Tutustu käyttäjän tietoihin ja kiinnostuksen kohteisiin.</string>
+    <string name="profile_image_description">Käyttäjän profiilikuva</string>
     <string name="profile_name">Jyri Nieminen</string>
     <string name="profile_role">Tietotekniikan insinööriopiskelija</string>
-    <string name="profile_desc">
-        Opiskelen ICT-alaa ja olen kiinnostunut ohjelmoinnista, tietoverkoista ja web-kehityksestä.
-    </string>
+    <string name="profile_desc">Opiskelen ICT-alaa ja olen kiinnostunut ohjelmoinnista, tietoverkoista ja web-kehityksestä.</string>
+    <string name="profile_location_city">Tampere</string>
 
     <string name="label_location">Paikkakunta</string>
     <string name="label_specialization">Suuntautuminen</string>
     <string name="label_interest">Kiinnostuksen kohde</string>
     <string name="label_hobby">Harrastus</string>
+    <string name="label_name">Nimi</string>
+    <string name="label_participant_count">Osallistujamäärä</string>
 
     <string name="specialisation">Ohjelmistotekniikka &amp; tietoverkot</string>
     <string name="interest">UI/UX-suunnittelu &amp; web-kehitys</string>
     <string name="hobby">Pelaaminen</string>
 
-    <string name="action_follow">Seuraa</string>
-    <string name="action_message">Lähetä viesti</string>
-
-    <string name="action_add_description">Lisää</string>
-
-    <!-- Teknologia kortit -->
+    <!-- ======================================== -->
+    <!-- Programming Technologies -->
+    <!-- ======================================== -->
     <string name="technology_screen_title">Ohjelmointiteknologiat</string>
     <string name="technology_show_favorites">Näytä vain suosikit</string>
     <string name="technology_no_favorites">Hakuehdoilla ei löytynyt teknologioita.</string>
     <string name="technology_search_label">Hae ohjelmointiteknologiaa</string>
+    <string name="technology_experience_format">Kokemusta: %d vuotta</string>
+    <string name="technology_favorite_true">✅ Suosikki</string>
+    <string name="technology_favorite_false">❌ Ei suosikki</string>
 
-    <!-- Navigointi -->
-    <string name="action_back">Takaisin</string>
+    <!-- ======================================== -->
+    <!-- Events -->
+    <!-- ======================================== -->
+    <string name="events_screen_title">Tapahtumat</string>
+    <string name="events_search_label">Hae tapahtumaa tai sijaintia</string>
+    <string name="events_show_free_only">Näytä vain ilmaiset</string>
+    <string name="events_no_results">Hakuehdoilla ei löytynyt tapahtumia.</string>
+    <string name="event_location_format">Sijainti: %s</string>
+    <string name="event_free">Ilmainen</string>
+    <string name="event_price_format">Hinta: %s €</string>
+    <string name="event_free_badge">🎉 Ilmainen tapahtuma</string>
+    <string name="event_paid_badge">🎟️ Maksullinen tapahtuma</string>
+    <string name="event_free_short">🎉 Ilmainen</string>
+    <string name="event_paid_short">🎟️ Maksullinen</string>
 
-    <!-- Laskuri -->
+    <!-- ======================================== -->
+    <!-- Counter -->
+    <!-- ======================================== -->
+    <string name="counter_title">Laskurin arvo</string>
     <string name="counter_value">Laskurin arvo: %d</string>
-    <string name="action_decrease">Pienennä</string>
-    <string name="action_increase">Kasvata</string>
-    <string name="action_reset">Nollaa</string>
+    <string name="action_decrease">Vähennä</string>
+    <string name="action_increase">Lisää</string>
+
+    <!-- ======================================== -->
+    <!-- Converter (Centimeter / Inch) -->
+    <!-- ======================================== -->
+    <string name="converter_title">Senttimetri–tuuma-muunnin</string>
+    <string name="converter_label_centimeters">Senttimetrit</string>
+    <string name="converter_result">%.2f tuumaa</string>
+    <string name="converter_result_prefix">Tulos: %s</string>
+    <string name="converter_formula">Muunnos tehdään kaavalla: tuumat = senttimetrit / 2,54</string>
+    <string name="converter_error_invalid_number">Anna kelvollinen numero.</string>
+
+    <!-- ======================================== -->
+    <!-- Registration Form -->
+    <!-- ======================================== -->
+    <string name="registration_title">Tapahtumaan ilmoittautuminen</string>
+    <string name="registration_confirmed_title">Ilmoittautuminen vahvistettu!</string>
+    <string name="registration_name_format">Nimi: %s</string>
+    <string name="registration_participants_format">Osallistujamäärä: %d</string>
+
+    <!-- ======================================== -->
+    <!-- Timer -->
+    <!-- ======================================== -->
+    <string name="timer_title">Sekuntikello</string>
+    <string name="timer_value_format">Sekuntikello: %d s</string>
+
+    <!-- ======================================== -->
+    <!-- Website / TAMK Info -->
+    <!-- ======================================== -->
+    <string name="website_name">TAMK</string>
+    <string name="website_url">https://www.tuni.fi/tamk</string>
+    <string name="website_address">Kuntokatu 3, 33520 Tampere</string>
+
+    <!-- ======================================== -->
+    <!-- Error Messages & Toasts -->
+    <!-- ======================================== -->
+    <string name="error_browser_not_found">Sopivaa selainta ei löytynyt.</string>
+    <string name="error_map_not_found">Sopivaa karttasovellusta ei löytynyt.</string>
 </resources>

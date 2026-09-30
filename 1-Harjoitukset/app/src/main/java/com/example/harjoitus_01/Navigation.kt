@@ -15,13 +15,16 @@ data class TechnologyDetailRoute(
     val technologyId: Int
 )
 
+@Serializable
+data object CounterViewModelRoute
+
+
 @Composable
 fun AppNavigation() {
     val navController = rememberNavController()
 
     NavHost(
-        navController = navController,
-        startDestination = TechnologyListRoute
+        navController = navController, startDestination = CounterViewModelRoute
     ) {
         composable<TechnologyListRoute> {
             TechnologyListScreen(
@@ -31,8 +34,7 @@ fun AppNavigation() {
                             technologyId = technologyId
                         )
                     )
-                }
-            )
+                })
         }
 
         composable<TechnologyDetailRoute> { backStackEntry ->
@@ -41,16 +43,19 @@ fun AppNavigation() {
 
             val technology = ProgrammingTechnologies.find {
                 it.id == route.technologyId
+
             }
 
             if (technology != null) {
                 TechnologyDetailScreen(
-                    technology = technology,
-                    onBackClick = {
+                    technology = technology, onBackClick = {
                         navController.navigateUp()
-                    }
-                )
+                    })
             }
+        }
+
+        composable<CounterViewModelRoute> {
+            CounterViewModelScreen()
         }
     }
 }

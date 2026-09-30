@@ -2,9 +2,7 @@
     <string name="app_name">Profiilisovellus</string>
 
     <string name="profile_title">Profiili</string>
-    <string name="profile_description">
-        Tutustu käyttäjän tietoihin ja kiinnostuksen kohteisiin.
-    </string>
+    <string name="profile_description">"         Tutustu käyttäjän tietoihin ja kiinnostuksen kohteisiin.     "</string>
 
     <string name="profile_image_description">
         Käyttäjän profiilikuva
@@ -37,4 +35,10 @@
 
     <!-- Navigointi -->
     <string name="action_back">Takaisin</string>
+
+    <!-- Laskuri -->
+    <string name="counter_value">Laskurin arvo: %d</string>
+    <string name="action_decrease">Pienennä</string>
+    <string name="action_increase">Kasvata</string>
+    <string name="action_reset">Nollaa</string>
 </resources>

@@ -37,4 +37,10 @@
 
     <!-- Navigation -->
     <string name="action_back">Back</string>
+
+    <!-- Laskuri -->
+    <string name="counter_value">Counter value: %d</string>
+    <string name="action_decrease">Decrease</string>
+    <string name="action_increase">Increase</string>
+    <string name="action_reset">Reset</string>
 </resources>

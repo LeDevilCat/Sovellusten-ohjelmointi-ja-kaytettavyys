@@ -8,6 +8,14 @@ import androidx.navigation.toRoute
 import kotlinx.serialization.Serializable
 
 @Serializable
+data object EventListRoute
+
+@Serializable
+data class EventDetailRoute(
+    val eventId: Int
+)
+
+@Serializable
 data object TechnologyListRoute
 
 @Serializable
@@ -29,8 +37,33 @@ fun AppNavigation() {
 
     NavHost(
         navController = navController,
-        startDestination = WebsiteRoute
+        startDestination = EventListRoute
     ) {
+        composable<EventListRoute> {
+            EventListScreen(
+                onEventClick = { eventId ->
+                    navController.navigate(
+                        EventDetailRoute(
+                            eventId = eventId
+                        )
+                    )
+                }
+            )
+        }
+
+        composable<EventDetailRoute> { backStackEntry ->
+            val route = backStackEntry.toRoute<EventDetailRoute>()
+            val event = Events.find { it.id == route.eventId }
+            if (event != null) {
+                EventDetailScreen(
+                    event = event,
+                    onBackClick = {
+                        navController.navigateUp()
+                    }
+                )
+            }
+        }
+
         composable<TechnologyListRoute> {
             TechnologyListScreen(
                 onTechnologyClick = { technologyId ->

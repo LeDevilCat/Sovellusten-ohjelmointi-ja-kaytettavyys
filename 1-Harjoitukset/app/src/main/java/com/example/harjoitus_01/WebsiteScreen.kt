@@ -25,6 +25,7 @@ fun WebsiteScreen() {
 
     val websiteName = "TAMK"
     val url = "https://www.tuni.fi/tamk"
+    val location = "Kuntokatu 3, 33520 Tampere"
 
     Column(
         modifier = Modifier
@@ -70,6 +71,35 @@ fun WebsiteScreen() {
             }
         ) {
             Text("Avaa verkkosivu")
+        }
+
+        Spacer(
+            modifier = Modifier.height(8.dp)
+        )
+
+        Button(
+            onClick = {
+
+                val locationUri =
+                    Uri.parse("geo:0,0?q=${Uri.encode(location)}")
+
+                val intent = Intent(
+                    Intent.ACTION_VIEW,
+                    locationUri
+                )
+
+                try {
+                    context.startActivity(intent)
+                } catch (e: ActivityNotFoundException) {
+                    Toast.makeText(
+                        context,
+                        "Sopivaa karttasovellusta ei löytynyt.",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
+        ) {
+            Text("Näytä kartalla")
         }
     }
 }

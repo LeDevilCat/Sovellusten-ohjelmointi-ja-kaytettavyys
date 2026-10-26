@@ -1,4 +1,4 @@
-package com.example.harjoitus_01
+package com.example.harjoitus_01.ui.event
 
 val Events = listOf(
     Event(

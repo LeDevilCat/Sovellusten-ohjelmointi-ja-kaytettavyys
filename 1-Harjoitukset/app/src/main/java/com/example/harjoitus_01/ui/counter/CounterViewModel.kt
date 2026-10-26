@@ -1,4 +1,4 @@
-package com.example.harjoitus_01
+package com.example.harjoitus_01.ui.counter
 
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.flow.MutableStateFlow

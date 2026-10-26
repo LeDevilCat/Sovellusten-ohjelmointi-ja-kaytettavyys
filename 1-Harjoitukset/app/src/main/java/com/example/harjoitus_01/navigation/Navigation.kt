@@ -1,10 +1,19 @@
-package com.example.harjoitus_01
+package com.example.harjoitus_01.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
+import com.example.harjoitus_01.ui.counter.CounterViewModelScreen
+import com.example.harjoitus_01.ui.event.EventDetailScreen
+import com.example.harjoitus_01.ui.event.EventListScreen
+import com.example.harjoitus_01.ui.event.Events
+import com.example.harjoitus_01.ui.technology.ProgrammingTechnologies
+import com.example.harjoitus_01.ui.technology.TechnologyDetailScreen
+import com.example.harjoitus_01.ui.technology.TechnologyListScreen
+import com.example.harjoitus_01.ui.timer.TimerScreen
+import com.example.harjoitus_01.ui.website.WebsiteScreen
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -28,6 +37,7 @@ data object CounterViewModelRoute
 
 @Serializable
 data object TimerRoute
+
 @Serializable
 data object WebsiteRoute
 
@@ -76,19 +86,18 @@ fun AppNavigation() {
         }
 
         composable<TechnologyDetailRoute> { backStackEntry ->
-
             val route = backStackEntry.toRoute<TechnologyDetailRoute>()
-
             val technology = ProgrammingTechnologies.find {
                 it.id == route.technologyId
-
             }
 
             if (technology != null) {
                 TechnologyDetailScreen(
-                    technology = technology, onBackClick = {
+                    technology = technology,
+                    onBackClick = {
                         navController.navigateUp()
-                    })
+                    }
+                )
             }
         }
 
@@ -99,6 +108,7 @@ fun AppNavigation() {
         composable<TimerRoute> {
             TimerScreen()
         }
+
         composable<WebsiteRoute> {
             WebsiteScreen()
         }

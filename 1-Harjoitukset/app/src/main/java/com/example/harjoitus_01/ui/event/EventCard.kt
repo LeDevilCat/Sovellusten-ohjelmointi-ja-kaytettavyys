@@ -1,4 +1,4 @@
-package com.example.harjoitus_01
+package com.example.harjoitus_01.ui.event
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
@@ -16,6 +16,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.example.harjoitus_01.R
 
 @Composable
 fun EventCard(

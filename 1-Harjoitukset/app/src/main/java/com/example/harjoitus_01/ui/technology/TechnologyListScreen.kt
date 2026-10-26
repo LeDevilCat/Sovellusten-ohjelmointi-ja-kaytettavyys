@@ -1,4 +1,4 @@
-package com.example.harjoitus_01
+package com.example.harjoitus_01.ui.technology
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
@@ -23,25 +23,25 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.example.harjoitus_01.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun EventListScreen(
+fun TechnologyListScreen(
     modifier: Modifier = Modifier,
-    onEventClick: (Int) -> Unit
+    onTechnologyClick: (Int) -> Unit
 ) {
-    var showFreeOnly by rememberSaveable {
+    var showFavoritesOnly by rememberSaveable {
         mutableStateOf(false)
     }
     var searchText by rememberSaveable {
         mutableStateOf("")
     }
 
-    val visibleEvents = Events.filter { event ->
-        val matchFreeFilter = !showFreeOnly || event.isFree
-        val matchSearchText = event.name.contains(searchText, ignoreCase = true) ||
-                event.location.contains(searchText, ignoreCase = true)
-        matchFreeFilter && matchSearchText
+    val visibleTechnologies = ProgrammingTechnologies.filter { technology ->
+        val matchFavouritesFilter = !showFavoritesOnly || technology.isFavorite
+        val matchSearchText = technology.name.contains(searchText, ignoreCase = true)
+        matchFavouritesFilter && matchSearchText
     }
 
     Scaffold(
@@ -49,11 +49,14 @@ fun EventListScreen(
         topBar = {
             TopAppBar(
                 title = {
-                    Text(text = stringResource(R.string.events_screen_title))
+                    Text(
+                        text = stringResource(R.string.technology_screen_title)
+                    )
                 }
             )
         }
     ) { innerPadding ->
+
         LazyColumn(
             modifier = Modifier
                 .fillMaxSize()
@@ -68,7 +71,9 @@ fun EventListScreen(
                         searchText = newText
                     },
                     label = {
-                        Text(text = stringResource(R.string.events_search_label))
+                        Text(
+                            text = stringResource(R.string.technology_search_label)
+                        )
                     },
                     modifier = Modifier.fillMaxWidth(),
                     singleLine = true
@@ -83,29 +88,36 @@ fun EventListScreen(
                     horizontalArrangement = Arrangement.SpaceBetween,
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Text(text = stringResource(R.string.events_show_free_only))
+                    Text(
+                        text = stringResource(R.string.technology_show_favorites)
+                    )
+
                     Switch(
-                        checked = showFreeOnly,
+                        checked = showFavoritesOnly,
                         onCheckedChange = { checked ->
-                            showFreeOnly = checked
+                            showFavoritesOnly = checked
                         }
                     )
                 }
             }
 
-            if (visibleEvents.isEmpty()) {
+            if (visibleTechnologies.isEmpty()) {
                 item {
-                    Text(text = stringResource(R.string.events_no_results))
+                    Text(
+                        text = stringResource(R.string.technology_no_favorites)
+                    )
                 }
             } else {
                 items(
-                    items = visibleEvents,
-                    key = { event -> event.id }
-                ) { event ->
-                    EventCard(
-                        event = event,
+                    items = visibleTechnologies,
+                    key = { technology ->
+                        technology.id
+                    }
+                ) { technology ->
+                    ProgrammingTechnologyCard(
+                        technology = technology,
                         onClick = {
-                            onEventClick(event.id)
+                            onTechnologyClick(technology.id)
                         }
                     )
                 }

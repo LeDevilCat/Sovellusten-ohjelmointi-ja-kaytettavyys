@@ -1,4 +1,4 @@
-package com.example.harjoitus_01
+package com.example.harjoitus_01.ui.profile
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer

@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import com.example.harjoitus_01.navigation.AppNavigation
 import com.example.harjoitus_01.ui.theme.Harjoitus01Theme
 
 class MainActivity : ComponentActivity() {

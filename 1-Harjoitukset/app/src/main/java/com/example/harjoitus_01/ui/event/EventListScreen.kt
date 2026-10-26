@@ -1,83 +1,65 @@
-package com.example.harjoitus_01
+package com.example.harjoitus_01.ui.event
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.Switch
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.example.harjoitus_01.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun TechnologyListScreen(
+fun EventListScreen(
     modifier: Modifier = Modifier,
-    onTechnologyClick: (Int) -> Unit
+    onEventClick: (Int) -> Unit
 ) {
-    var showFavoritesOnly by rememberSaveable {
+    var showFreeOnly by rememberSaveable {
         mutableStateOf(false)
     }
     var searchText by rememberSaveable {
         mutableStateOf("")
     }
 
-    val visibleTechnologies = ProgrammingTechnologies.filter { technology ->
-
-        val matchFavouritesFilter =
-            !showFavoritesOnly || technology.isFavorite
-
-        val matchSearchText =
-            technology.name.contains(
-                searchText,
-                ignoreCase = true
-            )
-
-        matchFavouritesFilter && matchSearchText
+    val visibleEvents = Events.filter { event ->
+        val matchFreeFilter = !showFreeOnly || event.isFree
+        val matchSearchText = event.name.contains(searchText, ignoreCase = true) ||
+                event.location.contains(searchText, ignoreCase = true)
+        matchFreeFilter && matchSearchText
     }
-
-    /*
-    val visibleTechnologies = if (showFavoritesOnly) {
-        ProgrammingTechnologies.filter {
-            it.isFavorite
-        }
-    } else {
-        ProgrammingTechnologies
-    }
-     */
 
     Scaffold(
-        modifier = modifier, topBar = {
+        modifier = modifier,
+        topBar = {
             TopAppBar(
                 title = {
-                    Text(
-                        text = stringResource(R.string.technology_screen_title)
-                    )
-                })
-        }) { innerPadding ->
-
+                    Text(text = stringResource(R.string.events_screen_title))
+                }
+            )
+        }
+    ) { innerPadding ->
         LazyColumn(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding),
-
             contentPadding = PaddingValues(16.dp),
-
             verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
             item {
@@ -87,9 +69,7 @@ fun TechnologyListScreen(
                         searchText = newText
                     },
                     label = {
-                        Text(
-                            text = stringResource(R.string.technology_search_label)
-                        )
+                        Text(text = stringResource(R.string.events_search_label))
                     },
                     modifier = Modifier.fillMaxWidth(),
                     singleLine = true
@@ -104,37 +84,29 @@ fun TechnologyListScreen(
                     horizontalArrangement = Arrangement.SpaceBetween,
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-
-                    Text(
-                        text = stringResource(R.string.technology_show_favorites)
-                    )
-
+                    Text(text = stringResource(R.string.events_show_free_only))
                     Switch(
-                        checked = showFavoritesOnly, onCheckedChange = { checked ->
-                            showFavoritesOnly = checked
-                        })
+                        checked = showFreeOnly,
+                        onCheckedChange = { checked ->
+                            showFreeOnly = checked
+                        }
+                    )
                 }
             }
 
-            if (visibleTechnologies.isEmpty()) {
-
+            if (visibleEvents.isEmpty()) {
                 item {
-                    Text(
-                        text = stringResource(R.string.technology_no_favorites)
-                    )
+                    Text(text = stringResource(R.string.events_no_results))
                 }
-
             } else {
-
                 items(
-                    items = visibleTechnologies, key = { technology ->
-                        technology.id
-                    }) { technology ->
-
-                    ProgrammingTechnologyCard(
-                        technology = technology,
+                    items = visibleEvents,
+                    key = { event -> event.id }
+                ) { event ->
+                    EventCard(
+                        event = event,
                         onClick = {
-                            onTechnologyClick(technology.id)
+                            onEventClick(event.id)
                         }
                     )
                 }

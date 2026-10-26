@@ -1,4 +1,4 @@
-package com.example.harjoitus_01
+package com.example.harjoitus_01.ui.technology
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -28,29 +28,35 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.example.harjoitus_01.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TechnologyDetailScreen(
-    technology: ProgrammingTechnology, onBackClick: () -> Unit
+    technology: ProgrammingTechnology,
+    onBackClick: () -> Unit
 ) {
     Scaffold(
         topBar = {
-            TopAppBar(title = {
-                Text(
-                    text = technology.name
-                )
-            }, navigationIcon = {
-                IconButton(
-                    onClick = onBackClick
-                ) {
-                    Icon(
-                        imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                        contentDescription = stringResource(R.string.action_back)
+            TopAppBar(
+                title = {
+                    Text(
+                        text = technology.name
                     )
+                },
+                navigationIcon = {
+                    IconButton(
+                        onClick = onBackClick
+                    ) {
+                        Icon(
+                            imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                            contentDescription = stringResource(R.string.action_back)
+                        )
+                    }
                 }
-            })
-        }) { innerPadding ->
+            )
+        }
+    ) { innerPadding ->
 
         Column(
             modifier = Modifier
@@ -71,13 +77,15 @@ fun TechnologyDetailScreen(
             )
 
             Text(
-                text = technology.name, style = MaterialTheme.typography.headlineMedium
+                text = technology.name,
+                style = MaterialTheme.typography.headlineMedium
             )
 
             HorizontalDivider()
 
             Text(
-                text = technology.description, style = MaterialTheme.typography.bodyLarge
+                text = technology.description,
+                style = MaterialTheme.typography.bodyLarge
             )
 
             Text(
@@ -93,11 +101,13 @@ fun TechnologyDetailScreen(
                         stringResource(R.string.technology_favorite_true)
                     } else {
                         stringResource(R.string.technology_favorite_false)
-                    }, color = if (technology.isFavorite) {
+                    },
+                    color = if (technology.isFavorite) {
                         MaterialTheme.colorScheme.primary
                     } else {
                         MaterialTheme.colorScheme.onSurfaceVariant
-                    }, style = MaterialTheme.typography.titleMedium
+                    },
+                    style = MaterialTheme.typography.titleMedium
                 )
             }
         }

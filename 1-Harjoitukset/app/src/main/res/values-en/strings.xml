@@ -47,7 +47,7 @@
     <string name="technology_show_favorites">Show favorites only</string>
     <string name="technology_no_favorites">No technologies matched the search criteria.</string>
     <string name="technology_search_label">Search programming technologies</string>
-    <string name="technology_experience_format">Experience: %d years</string>
+    <string name="technology_experience_format">Experience: %s years</string>
     <string name="technology_favorite_true">✅ Favorite</string>
     <string name="technology_favorite_false">❌ Not favorite</string>
 
@@ -110,4 +110,30 @@
     <!-- ======================================== -->
     <string name="error_browser_not_found">No suitable browser found.</string>
     <string name="error_map_not_found">No suitable map application found.</string>
+
+    <!-- ======================================== -->
+    <!-- Portfolio Screen & Features -->
+    <!-- ======================================== -->
+    <string name="portfolio_title">Portfolio</string>
+
+    <string name="portfolio_events_title">Events</string>
+    <string name="portfolio_events_description">Browse and filter events.</string>
+
+    <string name="portfolio_technologies_title">Programming Technologies</string>
+    <string name="portfolio_technologies_description">Explore programming technologies.</string>
+
+    <string name="portfolio_counter_title">Counter</string>
+    <string name="portfolio_counter_description">Try out the ViewModel counter.</string>
+
+    <string name="portfolio_timer_title">Stopwatch</string>
+    <string name="portfolio_timer_description">Start, stop and reset the stopwatch.</string>
+
+    <string name="portfolio_converter_title">Converter</string>
+    <string name="portfolio_converter_description">Convert centimeters to inches.</string>
+
+    <string name="portfolio_registration_title">Registration</string>
+    <string name="portfolio_registration_description">Try out the form and confirmation.</string>
+
+    <string name="portfolio_website_title">TAMK Website</string>
+    <string name="portfolio_website_description">Open website and location on map.</string>
 </resources>

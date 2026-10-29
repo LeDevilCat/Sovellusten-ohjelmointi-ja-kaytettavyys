@@ -32,8 +32,10 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.harjoitus_01.R
+import com.example.harjoitus_01.ui.theme.Harjoitus01Theme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -156,5 +158,24 @@ fun EventDetailScreen(
                 Text(stringResource(R.string.action_show_map))
             }
         }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun EventDetailScreenPreview() {
+    Harjoitus01Theme {
+        EventDetailScreen(
+            event = Event(
+                id = 1,
+                name = "Koodaus Miitti 2025",
+                description = "Opiskelijoiden ja alan ammattilaisten koodausseminaari ja verkostoitumistapahtuma.",
+                location = "Helsinki",
+                isFree = true,
+                price = 0f,
+                websiteUrl = "https://example.com"
+            ),
+            onBackClick = {}
+        )
     }
 }

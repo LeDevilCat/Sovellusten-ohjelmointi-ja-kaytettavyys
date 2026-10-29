@@ -47,7 +47,7 @@
     <string name="technology_show_favorites">Näytä vain suosikit</string>
     <string name="technology_no_favorites">Hakuehdoilla ei löytynyt teknologioita.</string>
     <string name="technology_search_label">Hae ohjelmointiteknologiaa</string>
-    <string name="technology_experience_format">Kokemusta: %d vuotta</string>
+    <string name="technology_experience_format">Kokemusta: %s vuotta</string>
     <string name="technology_favorite_true">✅ Suosikki</string>
     <string name="technology_favorite_false">❌ Ei suosikki</string>
 
@@ -110,4 +110,30 @@
     <!-- ======================================== -->
     <string name="error_browser_not_found">Sopivaa selainta ei löytynyt.</string>
     <string name="error_map_not_found">Sopivaa karttasovellusta ei löytynyt.</string>
+
+    <!-- ======================================== -->
+    <!-- Portfolio Screen & Features -->
+    <!-- ======================================== -->
+    <string name="portfolio_title">Portfolio</string>
+
+    <string name="portfolio_events_title">Tapahtumat</string>
+    <string name="portfolio_events_description">Selaa ja suodata tapahtumia.</string>
+
+    <string name="portfolio_technologies_title">Ohjelmointiteknologiat</string>
+    <string name="portfolio_technologies_description">Tutustu ohjelmointiteknologioihin.</string>
+
+    <string name="portfolio_counter_title">Laskuri</string>
+    <string name="portfolio_counter_description">Kokeile ViewModel-laskuria.</string>
+
+    <string name="portfolio_timer_title">Sekuntikello</string>
+    <string name="portfolio_timer_description">Käynnistä, pysäytä ja nollaa sekuntikello.</string>
+
+    <string name="portfolio_converter_title">Muunnin</string>
+    <string name="portfolio_converter_description">Muunna senttimetrejä tuumiksi.</string>
+
+    <string name="portfolio_registration_title">Ilmoittautuminen</string>
+    <string name="portfolio_registration_description">Kokeile lomaketta ja vahvistusta.</string>
+
+    <string name="portfolio_website_title">TAMK-verkkosivu</string>
+    <string name="portfolio_website_description">Avaa verkkosivu ja sijainti kartalla.</string>
 </resources>

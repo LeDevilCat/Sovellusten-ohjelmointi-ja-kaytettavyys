@@ -7,11 +7,18 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.Button
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -26,13 +33,16 @@ import com.example.harjoitus_01.R
 import java.util.Locale
 
 fun convertCentimetersToInches(
-    centimeters: Double
+    centimeters: Double,
 ): Double {
     return centimeters / 2.54
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Converter() {
+fun Converter(
+    onBackClick: (() -> Unit)? = null,
+) {
 
     var input by rememberSaveable {
         mutableStateOf("")
@@ -53,124 +63,136 @@ fun Converter() {
     val invalidNumberError = stringResource(R.string.converter_error_invalid_number)
     val inchesUnitFormat = stringResource(R.string.converter_result)
 
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(24.dp),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
-    ) {
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = {
+                    Text(text = stringResource(R.string.converter_title))
+                },
+                navigationIcon = {
+                    onBackClick?.let { onClick ->
+                        IconButton(onClick = onClick) {
+                            Icon(
+                                imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                                contentDescription = stringResource(R.string.action_back)
+                            )
+                        }
+                    }
+                }
+            )
+        }
+    ) { innerPadding ->
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(innerPadding)
+                .padding(24.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
+        ) {
 
-        Text(
-            text = stringResource(R.string.converter_title),
-            style = MaterialTheme.typography.headlineSmall
-        )
-
-        Spacer(
-            modifier = Modifier.height(24.dp)
-        )
-
-        OutlinedTextField(
-            value = input,
-            onValueChange = {
-                input = it
-                errorMessage = ""
-            },
-            label = {
-                Text(text = stringResource(R.string.converter_label_centimeters))
-            },
-            singleLine = true,
-            modifier = Modifier.fillMaxWidth()
-        )
-
-        Spacer(
-            modifier = Modifier.height(16.dp)
-        )
-
-        Button(
-            onClick = {
-
-                val centimeters = input
-                    .replace(',', '.')
-                    .toDoubleOrNull()
-
-                if (centimeters == null) {
-                    errorMessage = invalidNumberError
-                    result = ""
-                } else {
-                    val inches = convertCentimetersToInches(centimeters)
-                    result = String.format(Locale.getDefault(), inchesUnitFormat, inches)
+            OutlinedTextField(
+                value = input,
+                onValueChange = {
+                    input = it
                     errorMessage = ""
-                }
-            },
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            Text(text = stringResource(R.string.action_calculate))
-        }
-
-        Spacer(
-            modifier = Modifier.height(8.dp)
-        )
-
-        OutlinedButton(
-            onClick = {
-                input = ""
-                result = ""
-                errorMessage = ""
-            },
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            Text(text = stringResource(R.string.action_clear))
-        }
-
-        Spacer(
-            modifier = Modifier.height(24.dp)
-        )
-
-        if (result.isNotEmpty()) {
-            Text(
-                text = stringResource(R.string.converter_result_prefix, result),
-                style = MaterialTheme.typography.titleLarge
+                },
+                label = {
+                    Text(text = stringResource(R.string.converter_label_centimeters))
+                },
+                singleLine = true,
+                modifier = Modifier.fillMaxWidth()
             )
-        }
 
-        if (errorMessage.isNotEmpty()) {
             Spacer(
-                modifier = Modifier.height(8.dp)
+                modifier = Modifier.height(16.dp)
             )
 
-            Text(
-                text = errorMessage,
-                color = MaterialTheme.colorScheme.error
-            )
-        }
+            Button(
+                onClick = {
 
-        Spacer(
-            modifier = Modifier.height(24.dp)
-        )
+                    val centimeters = input
+                        .replace(',', '.')
+                        .toDoubleOrNull()
 
-        OutlinedButton(
-            onClick = {
-                showFormula = !showFormula
+                    if (centimeters == null) {
+                        errorMessage = invalidNumberError
+                        result = ""
+                    } else {
+                        val inches = convertCentimetersToInches(centimeters)
+                        result = String.format(Locale.getDefault(), inchesUnitFormat, inches)
+                        errorMessage = ""
+                    }
+                },
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Text(text = stringResource(R.string.action_calculate))
             }
-        ) {
-            Text(
-                text = if (showFormula) {
-                    stringResource(R.string.action_hide_help)
-                } else {
-                    stringResource(R.string.action_show_help)
-                }
-            )
-        }
 
-        if (showFormula) {
             Spacer(
                 modifier = Modifier.height(8.dp)
             )
 
-            Text(
-                text = stringResource(R.string.converter_formula)
+            OutlinedButton(
+                onClick = {
+                    input = ""
+                    result = ""
+                    errorMessage = ""
+                },
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Text(text = stringResource(R.string.action_clear))
+            }
+
+            Spacer(
+                modifier = Modifier.height(24.dp)
             )
+
+            if (result.isNotEmpty()) {
+                Text(
+                    text = stringResource(R.string.converter_result_prefix, result),
+                    style = MaterialTheme.typography.titleLarge
+                )
+            }
+
+            if (errorMessage.isNotEmpty()) {
+                Spacer(
+                    modifier = Modifier.height(8.dp)
+                )
+
+                Text(
+                    text = errorMessage,
+                    color = MaterialTheme.colorScheme.error
+                )
+            }
+
+            Spacer(
+                modifier = Modifier.height(24.dp)
+            )
+
+            OutlinedButton(
+                onClick = {
+                    showFormula = !showFormula
+                }
+            ) {
+                Text(
+                    text = if (showFormula) {
+                        stringResource(R.string.action_hide_help)
+                    } else {
+                        stringResource(R.string.action_show_help)
+                    }
+                )
+            }
+
+            if (showFormula) {
+                Spacer(
+                    modifier = Modifier.height(8.dp)
+                )
+
+                Text(
+                    text = stringResource(R.string.converter_formula)
+                )
+            }
         }
     }
 }

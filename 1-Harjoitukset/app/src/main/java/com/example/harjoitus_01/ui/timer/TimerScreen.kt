@@ -7,8 +7,15 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.Button
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
@@ -19,56 +26,79 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.harjoitus_01.R
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TimerScreen(
-    timerViewModel: TimerViewModel = viewModel()
+    timerViewModel: TimerViewModel = viewModel(),
+    onBackClick: (() -> Unit)? = null,
 ) {
     val seconds by timerViewModel.seconds
         .collectAsStateWithLifecycle()
 
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(16.dp),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
-    ) {
-
-        Text(
-            text = stringResource(R.string.timer_value_format, seconds)
-        )
-
-        Spacer(
-            modifier = Modifier.height(24.dp)
-        )
-
-        Row(
-            horizontalArrangement = Arrangement.spacedBy(8.dp)
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = {
+                    Text(text = stringResource(R.string.timer_title))
+                },
+                navigationIcon = {
+                    onBackClick?.let { onClick ->
+                        IconButton(onClick = onClick) {
+                            Icon(
+                                imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                                contentDescription = stringResource(R.string.action_back)
+                            )
+                        }
+                    }
+                }
+            )
+        }
+    ) { innerPadding ->
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(innerPadding)
+                .padding(16.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
         ) {
 
-            Button(
-                onClick = {
-                    timerViewModel.startTimer()
-                }
-            ) {
-                Text(stringResource(R.string.action_start))
-            }
+            Text(
+                text = stringResource(R.string.timer_value_format, seconds)
+            )
 
-            Button(
-                onClick = {
-                    timerViewModel.stopTimer()
-                }
-            ) {
-                Text(stringResource(R.string.action_stop))
-            }
+            Spacer(
+                modifier = Modifier.height(24.dp)
+            )
 
-            Button(
-                onClick = {
-                    timerViewModel.resetTimer()
-                },
-                enabled = seconds > 0
+            Row(
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
             ) {
-                Text(stringResource(R.string.action_reset))
+
+                Button(
+                    onClick = {
+                        timerViewModel.startTimer()
+                    }
+                ) {
+                    Text(stringResource(R.string.action_start))
+                }
+
+                Button(
+                    onClick = {
+                        timerViewModel.stopTimer()
+                    }
+                ) {
+                    Text(stringResource(R.string.action_stop))
+                }
+
+                Button(
+                    onClick = {
+                        timerViewModel.resetTimer()
+                    },
+                    enabled = seconds > 0
+                ) {
+                    Text(stringResource(R.string.action_reset))
+                }
             }
         }
     }
